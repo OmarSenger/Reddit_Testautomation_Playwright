@@ -29,6 +29,12 @@ exports.HomePage = class HomePage {
         
     }
 
+    async unsubscribereddit(){
+
+        await this.unsubscribeButton.click()
+    
+}
+
     async createNewPost(title,body){
             await this.createPost.click()
             await this.titleField.fill(title)
