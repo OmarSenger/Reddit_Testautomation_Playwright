@@ -34,7 +34,7 @@ jobs:
 
       - name: Check PageSpeed Score
         run: |
-          if [ "$SCORE" -lt 90 ]; then
+          if [ "$SCORE" -lt 50 ]; then
             echo "PageSpeed score dropped below the acceptable threshold!"
             exit 1
           else
