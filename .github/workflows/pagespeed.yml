@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
@@ -34,7 +35,7 @@ jobs:
 
       - name: Check PageSpeed Score
         run: |
-          if [ "$SCORE" -lt 50 ]; then
+          if [ "$SCORE" -lt 90 ]; then
             echo "PageSpeed score dropped below the acceptable threshold!"
             exit 1
           else
