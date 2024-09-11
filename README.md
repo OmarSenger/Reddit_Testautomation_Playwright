@@ -41,7 +41,6 @@ Test Suite 1
 3. Test: Search And Subscribe
     - Description: Searches for a subreddit, subscribes to it, and then unsubscribes.
     - Assertions:
-    Verify that the search results include the expected subreddit.
     Check that the subscription and unsubscription actions are reflected correctly on the page.
 3. Test: Create New Post
     - Description: Creates a new post and verifies its presence in the drafts.
