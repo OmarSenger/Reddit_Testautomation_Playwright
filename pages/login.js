@@ -8,15 +8,28 @@ exports.LoginPage = class LoginPage {
         this.signInButton = page.getByRole('button', { name: 'Log In' })
     }
 
-    async gotoWebsite(){
+    async gotoWebsite() {
         await this.page.goto('https://www.reddit.com/')
     }
 
 
-    async successfullyLogin (username , password){
-        await this.loginButton.click()
-        await this.userNameField.fill(username)
-        await this.passwordField.fill(password)
-        await this.signInButton.click()
+    async successfullyLogin(username, password) {
+        try {
+
+            await this.loginButton.click();
+
+            await this.userNameField.fill(username);
+
+            await this.passwordField.fill(password);
+
+            await this.signInButton.click();
+
+        } catch (error) {
+
+            console.error('Login failed: ', error);
+
+            throw error;
+
+        }
     }
 }

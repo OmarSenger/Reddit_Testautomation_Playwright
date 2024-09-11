@@ -1,0 +1,44 @@
+name: PageSpeed Insights Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pagespeed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install PageSpeed Insights CLI
+        run: npm install -g psi
+
+      - name: Run PageSpeed Insights
+        id: pagespeed
+        run: |
+          # Run PageSpeed Insights and output score
+          PSI_RESULT=$(psi https://github.com/OmarSenger/Reddit_Testautomation_Playwright --strategy=mobile --format=json)
+          SCORE=$(echo $PSI_RESULT | jq .ruleGroups.SPEED.score)
+          echo "PageSpeed Score: $SCORE"
+          echo "SCORE=$SCORE" >> $GITHUB_ENV
+
+      - name: Check PageSpeed Score
+        run: |
+          if [ "$SCORE" -lt 90 ]; then
+            echo "PageSpeed score dropped below the acceptable threshold!"
+            exit 1
+          else
+            echo "PageSpeed score is acceptable."
+          fi
+        env:
+          SCORE: ${{ env.SCORE }}
