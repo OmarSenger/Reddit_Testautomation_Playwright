@@ -44,8 +44,6 @@ Test Suite 1
     Check that the subscription and unsubscription actions are reflected correctly on the page.
 3. Test: Create New Post
     - Description: Creates a new post and verifies its presence in the drafts.
-    - Assertions:
-    Confirm that the new post appears in the list of drafts.
 
 # GitHub Actions
 The repository includes a GitHub Actions workflow to automatically run the PageSpeed Insights check and other tests on each push to the main branch or on pull requests.
