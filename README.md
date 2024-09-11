@@ -1,6 +1,6 @@
 # Playwright Test Suite
 
-This repository contains a suite of automated tests for a Reddit web application using Playwright. The tests cover various functionalities, including login, searching, subscribing, and creating posts.
+This repository contains a suite of automated tests for a Reddit web application using Playwright. The tests cover various functionalities, including login, searching, subscribing, creating posts and saving into drafts.
 
 ## Prerequisites
 
