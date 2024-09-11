@@ -18,14 +18,13 @@ test.describe('Test Suite 1', () => {
     const homePage = new HomePage(page)
     await homePage.searchMethod('test')
     await homePage.subscribereddit()
+    
   });
 
   test('post', async ({ page }) => {
     const homePage = new HomePage(page)
     await homePage.searchMethod('test')
     await homePage.createNewPost('Test Automation','Saved as draft post!')
-    await homePage.searchMethod('test')
-    await homePage.unsubscribereddit()
   
   });
 });
